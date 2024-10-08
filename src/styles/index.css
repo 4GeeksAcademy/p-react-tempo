@@ -30,16 +30,5 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    margin-top: 50px;
   }
-  
-  .icon {
-    margin: 0 5px;
-    padding: 10px;
-    width: 50px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url("https://w0.peakpx.com/wallpaper/197/757/HD-wallpaper-black-background-with-different-icons-background-icons-texture-icons-different-line-icons-background-with-icons.jpg");
-    background-size: cover;  
-}

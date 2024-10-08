@@ -1,42 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React from "react";
+import Digit from "./Digit"
 import "../../styles/index.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 
-const SimpleCounter = () => {
-	const [digits, setDigits] = useState(Array(6).fill(0));
+const Home = ({ seconds }) => {
+
+	const s = seconds.toString().padStart(6, '0');
   
-	useEffect(() => {
-	  const interval = setInterval(() => {
-		setDigits((prevDigits) => {
-		  const newDigits = [...prevDigits];
-		  for (let i = newDigits.length - 1; i >= 0; i--) {
-			if (newDigits[i] < 9) {
-			  newDigits[i] += 1;
-			  break;
-			} else {
-			  newDigits[i] = 0;
-			  if (i === 0) return newDigits;
-			}
-		  }
-		  return newDigits;
-		});
-	  }, 1000);
-	  return () => clearInterval(interval);
-	}, []);
+	const d0 = s[0];
+	const d1 = s[1];
+	const d2 = s[2];
+	const d3 = s[3];
+	const d4 = s[4];
+	const d5 = s[5];
+	const icon= <FontAwesomeIcon icon={faClock} />;
   
 	return (
-		<div className="counter-container">
-			<div className="icon mt-5">
-		  <FontAwesomeIcon icon={faClock} style={{ width: '40px', height: '40px', color: 'white' }} />
-		  </div>
-		  {digits.map((digit, index) => (
-			<div key={index} className="digit mt-5">
-			  {digit}
-			</div>
-		  ))}
-		</div>
-	  );
-	};
+	  <div className="counter-container">
+		<Digit icon={icon} />
+		<Digit digit={d0} />
+		<Digit digit={d1} />
+		<Digit digit={d2} />
+		<Digit digit={d3} />
+		<Digit digit={d4} />
+		<Digit digit={d5} />
+	  </div>
+	);
+  };
 
-export default SimpleCounter;
+export default Home;

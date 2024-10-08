@@ -3,7 +3,12 @@ import ReactDOM from "react-dom/client";
 
 import "../styles/index.css";
 
-import Home from "./component/home.jsx"
+import SimpleCounter from "./component/SimpleCounter.jsx"
 
-ReactDOM.createRoot(document.getElementById('app')).render(<Home/>);
+const root = ReactDOM.createRoot(document.getElementById('app'));
 
+let seconds = 0;
+setInterval(() => {
+    root.render(<SimpleCounter seconds={seconds} />);
+    seconds++;
+}, 1000);
